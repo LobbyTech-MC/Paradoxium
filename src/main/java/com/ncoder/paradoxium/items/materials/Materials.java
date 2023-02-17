@@ -13,18 +13,18 @@ public final class Materials {
     public static final SlimefunItemStack BARK = new SlimefunItemStack(
             "BARK",
             Material.PAPER,
-            "&fBark",
+            "&f树皮",
             "",
-            "&6&lRight Click &7a stripped log to turn it back to normal log."
+            "&6&l右键 &7将去皮原木恢复成普通原木"
     );
 
     public static SlimefunItemStack PRESENT(PresentType type) {
         return new SlimefunItemStack(
                 "PRESENT_" + type.toString(),
-                type.getTexture().getTexture(),
-                "&6Present &7(&b" + type.getName() + "&7)",
+                type.getTexture().getBase64(),
+                "&6魔盒 &7(&b" + type.getName() + "&7)",
                 "",
-                "&6&lRight Click &7to open Present"
+                "&6&l右键 &7打开魔盒"
         );
     }
 
