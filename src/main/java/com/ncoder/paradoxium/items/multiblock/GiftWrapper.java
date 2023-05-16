@@ -1,21 +1,11 @@
 package com.ncoder.paradoxium.items.multiblock;
 
-import com.ncoder.paradoxium.ParadoxConfig;
-import com.ncoder.paradoxium.enums.PresentType;
-import com.ncoder.paradoxium.items.materials.Materials;
-import com.ncoder.paradoxium.utils.Constants;
-import com.ncoder.paradoxium.utils.Keys;
-import com.ncoder.paradoxlib.common.Scheduler;
-import com.ncoder.paradoxlib.machines.ParadoxInventoryBlock;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Nonnull;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -28,10 +18,23 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import com.ncoder.paradoxium.ParadoxConfig;
+import com.ncoder.paradoxium.enums.PresentType;
+import com.ncoder.paradoxium.items.materials.Materials;
+import com.ncoder.paradoxium.utils.Constants;
+import com.ncoder.paradoxium.utils.Keys;
+import com.ncoder.paradoxlib.blocks.ParadoxInventoryBlock;
+import com.ncoder.paradoxlib.common.Scheduler;
+
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 
 public class GiftWrapper extends ParadoxInventoryBlock implements RecipeDisplayItem {
 
@@ -97,7 +100,6 @@ public class GiftWrapper extends ParadoxInventoryBlock implements RecipeDisplayI
         p.getInventory().addItem(present);
     }
 
-    @Override
     protected void setup(BlockMenuPreset preset) {
         for (int i : BORDER_ITEMS) {
             preset.addItem(i, new CustomItemStack(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), Constants.EMPTY),
@@ -184,4 +186,10 @@ public class GiftWrapper extends ParadoxInventoryBlock implements RecipeDisplayI
 
         return displayRecipes;
     }
+
+	@Override
+	protected void onSetup(BlockMenuPreset preset) {
+		// TODO Auto-generated method stub
+		
+	}
 }

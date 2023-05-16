@@ -1,18 +1,7 @@
 package com.ncoder.paradoxium.items.machines;
 
-import com.ncoder.paradoxium.items.materials.Shards;
-import com.ncoder.paradoxium.utils.Constants;
-import com.ncoder.paradoxium.utils.Keys;
-import com.ncoder.paradoxium.utils.Utils;
-import com.ncoder.paradoxlib.common.Scheduler;
-import com.ncoder.paradoxlib.machines.ParadoxInventoryBlock;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import javax.annotation.Nonnull;
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -22,9 +11,22 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import javax.annotation.Nonnull;
+import com.ncoder.paradoxium.items.materials.Shards;
+import com.ncoder.paradoxium.utils.Constants;
+import com.ncoder.paradoxium.utils.Keys;
+import com.ncoder.paradoxium.utils.Utils;
+import com.ncoder.paradoxlib.blocks.ParadoxInventoryBlock;
+import com.ncoder.paradoxlib.common.Scheduler;
 
-public class ShardTable extends ParadoxInventoryBlock {
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+
+public abstract class ShardTable extends ParadoxInventoryBlock {
 
     private final int[] BORDER = { 0, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 51, 52, 53};
     private final int[] BORDER_GEAR = { 48, 50 };
@@ -104,7 +106,6 @@ public class ShardTable extends ParadoxInventoryBlock {
         return 0;
     }
 
-    @Override
     protected void setup(BlockMenuPreset preset) {
         for (int i : BORDER) {
             preset.addItem(i, new CustomItemStack(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), Constants.EMPTY),

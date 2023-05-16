@@ -1,14 +1,27 @@
 package com.ncoder.paradoxium.items.blocks;
 
-import com.google.common.base.Strings;
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.ItemStack;
+
 import com.ncoder.paradoxium.ParadoxAPI;
 import com.ncoder.paradoxium.ParadoxConfig;
 import com.ncoder.paradoxium.Paradoxium;
 import com.ncoder.paradoxium.utils.Constants;
 import com.ncoder.paradoxium.utils.Utils;
+import com.ncoder.paradoxlib.blocks.ParadoxInventoryBlock;
 import com.ncoder.paradoxlib.common.Scheduler;
-import com.ncoder.paradoxlib.machines.ParadoxInventoryBlock;
 import com.ncoder.paradoxlib.utils.ConversionUtil;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -17,17 +30,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.UUID;
 
 public class WarpPlate extends ParadoxInventoryBlock {
 
@@ -121,7 +123,6 @@ public class WarpPlate extends ParadoxInventoryBlock {
         });
     }
 
-    @Override
     protected void setup(BlockMenuPreset preset) {
         for (int i : BORDER) {
             preset.addItem(i, new CustomItemStack(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), Constants.EMPTY),
@@ -227,4 +228,15 @@ public class WarpPlate extends ParadoxInventoryBlock {
             return false;
         });
     }
+
+	public void register(Paradoxium plugin) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void onSetup(BlockMenuPreset preset) {
+		// TODO Auto-generated method stub
+		
+	}
 }

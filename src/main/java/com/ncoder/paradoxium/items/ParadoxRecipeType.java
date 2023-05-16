@@ -1,11 +1,12 @@
 package com.ncoder.paradoxium.items;
 
-import com.ncoder.paradoxium.items.machines.Machines;
+import org.bukkit.Material;
+
 import com.ncoder.paradoxium.items.multiblock.Multiblocks;
 import com.ncoder.paradoxium.utils.Keys;
+
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import org.bukkit.Material;
 
 public class ParadoxRecipeType {
 
